@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aurora & Co. Coffee | Our Story</title>
+  <meta name="description" content="Discover the story behind Aurora & Co. Coffee: farmers, roasting craft, and a commitment to transparent sourcing and community." />
+  <meta property="og:title" content="Aurora & Co. Coffee | Our Story" />
+  <meta property="og:description" content="From farmer partnerships to roasting craft and community impact." />
+  <meta property="og:image" content="/assets/images/aurora-story-og.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0A2540" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@600;700;800&family=Inter:wght@400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { DEFAULT: '#0A2540', 50: '#e8f0fb', 100: '#cbdcfa', 200: '#9bb0ea', 300: '#6a87dd', 400: '#4372d0', 500: '#0A2540', 600: '#091e3a', 700: '#081631', 800: '#071426', 900: '#060e1a' },
+            secondary: { DEFAULT: '#F5EAD8', 50: '#fffaf4', 100: '#fff0e6', 200: '#ffe3cf', 300: '#fbd8b3', 400: '#f5c99f', 500: '#F5EAD8', 600: '#e9cfb8', 700: '#d4b29a', 800: '#bd9475', 900: '#a56657' },
+            accent: { DEFAULT: '#F59E0B', 50: '#fff7e5', 100: '#fff0d8', 200: '#fedfb1', 300: '#fbd08a', 400: '#f8b357', 500: '#F59E0B', 600: '#e08a07', 700: '#c76a04', 800: '#a75b05', 900: '#6b4904' }
+          },
+          fontFamily: {
+            display: ['Playfair Display','Didot','serif'],
+            heading: ['Merriweather','Georgia','serif'],
+            body: ['Inter','ui-sans-serif','system-ui']
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.8s ease-out',
+            'gradient-shift': 'gradientShift 3s ease infinite'
+          },
+          keyframes: {
+            fadeInUp: { '0%': {opacity: '0', transform: 'translateY(20px)' }, '100%': {opacity: '1', transform: 'translateY(0)'} },
+            gradientShift: { '0%': { backgroundPosition: '0% 50%' }, '50%': { backgroundPosition: '100% 50%' }, '100%': { backgroundPosition: '0% 50%' } }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    .gradient-text { background: linear-gradient(135deg, #0A2540 0%, #F5EAD8 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .glass { background: rgba(255,255,255,0.75); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.6); }
+    .noise { background-image: url("data:image/svg+xml,%3Csvg width='120' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3C/svg%3E"); opacity: .08; pointer-events:none; position:absolute; inset:0; z-index:0; }
+    .gradient-animated { background: linear-gradient(135deg, #0A2540 0%, #F5EAD8 100%); background-size: 200% 200%; animation: gradientShift 6s ease infinite; }
+    .fade-in { opacity:0; transform: translateY(20px); transition: opacity .6s ease-out, transform .6s ease-out; }
+    .fade-in.is-visible { opacity:1; transform: translateY(0); }
+    .skip-link { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus { left:0; width:auto; height:auto; padding:8px 12px; z-index:1000; background:#111; color:white; border-radius:6px; }
+  </style>
+</head>
+<body class="antialiased bg-white text-slate-800">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header / Nav -->
+  <header class="w-full fixed top-0 left-0 right-0 z-50">
+    <nav class="glass w-full backdrop-blur-md bg-white/70 md:bg-white/90 md:dark:bg-gray-900/60 shadow">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="index.html" class="text-2xl font-display font-bold tracking-wide text-primary hover:text-primary">Aurora & Co. Coffee</a>
+        <div class="hidden md:flex items-center gap-6">
+          <a href="#story" class="hover:text-primary transition-colors">Story</a>
+          <a href="#menu" class="hover:text-primary transition-colors">Menu</a>
+          <a href="about.html" class="hover:text-primary transition-colors">Our Story</a>
+          <a href="#locations" class="hover:text-primary transition-colors">Locations</a>
+          <a href="#membership" class="hover:text-primary transition-colors">Membership</a>
+          <a href="shop.html" class="bg-primary text-white px-4 py-2 rounded-full font-semibold">Order Now</a>
+        </div>
+        <button id="mobile-toggle" class="md:hidden inline-flex flex-col w-8 h-6 justify-between" aria-label="Open menu">
+          <span class="block h-0.5 bg-current"></span>
+          <span class="block h-0.5 bg-current"></span>
+          <span class="block h-0.5 bg-current"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="md:hidden fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform translate-x-full transition-transform"></div>
+  <div id="drawer-overlay" class="md:hidden fixed inset-0 bg-black/50 opacity-0 pointer-events-none transition-opacity"></div>
+
+  <main id="main" class="pt-20">
+    <!-- Story Hero -->
+    <section id="story-hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+      <div class="absolute inset-0">
+        <img src="/assets/images/aurora-story-hero.jpg" alt="Farm to Roastery" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
+      </div>
+      <div class="relative z-10 text-center max-w-3xl px-6 py-20">
+        <h1 class="text-4xl md:text-5xl font-display font-black text-white gradient-text">Our Story: Craft, Community, and Transparency</h1>
+        <p class="text-white/90 mt-4">From family farms to our roastery, we celebrate the communities that color every cup.</p>
+      </div>
+    </section>
+
+    <!-- Timeline / Story Sections -->
+    <section class="py-20 bg-white" aria-label="Story Timeline">
+      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 items-stretch">
+        <article class="bg-white rounded-2xl shadow-md p-6 border border-neutral-200 fade-in">
+          <h3 class="text-xl font-heading font-bold mb-2">Origins</h3>
+          <p class="text-neutral-600">We partner directly with farmers who cultivate beans with care, confirming provenance and ethics at every harvest.</p>
+        </article>
+        <article class="bg-white rounded-2xl shadow-md p-6 border border-neutral-200 fade-in">
+          <h3 class="text-xl font-heading font-bold mb-2">Roasting Craft</h3>
+          <p class="text-neutral-600">Our roasters amplify flavor with controlled profiles, unlocking aromatics and notes unique to each origin.</p>
+        </article>
+        <article class="bg-white rounded-2xl shadow-md p-6 border border-neutral-200 fade-in">
+          <h3 class="text-xl font-heading font-bold mb-2">Community & Sustainability</h3>
+          <p class="text-neutral-600">Sustainable practices, transparent sourcing disclosures, and local events that invite you to belong.</p>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-neutral-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <h4 class="font-heading text-lg mb-2">Aurora & Co. Coffee</h4>
+        <p class="text-sm text-neutral-300">Premium craft coffee with transparent origins and warm hospitality.</p>
+      </div>
+      <div class="text-right md:text-left">
+        <p class="text-sm text-neutral-300">Open daily 7am–9pm • Downtown</p>
+      </div>
+    </div>
+    <div class="border-t border-neutral-700 mt-6"></div>
+    <div class="text-center text-sm text-neutral-400 mt-4">© Aurora & Co. Coffee 2025</div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('mobile-toggle');
+    const drawer = document.getElementById('mobile-drawer');
+    const overlay = document.getElementById('drawer-overlay');
+    toggle?.addEventListener('click', () => {
+      const open = drawer.style.transform === 'translateX(0%)';
+      drawer.style.transform = open ? 'translateX(100%)' : 'translateX(0%)';
+      overlay.style.opacity = open ? '0' : '1';
+      overlay.style.pointerEvents = open ? 'none' : 'auto';
+    });
+    overlay?.addEventListener('click', () => { drawer.style.transform = 'translateX(100%)'; overlay.style.opacity = '0'; overlay.style.pointerEvents = 'none'; });
+  </script>
+
+  <!-- JSON-LD Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Aurora & Co. Coffee",
+    "url": "https://example.com",
+    "logo": "https://example.com/assets/logo.png",
+    "description": "Premium, craft coffee with transparent sourcing and warm hospitality.",
+    "sameAs": [
+      "https://www.instagram.com/aurora_coffee",
+      "https://www.facebook.com/aurora_coffee"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Aurora Ave",
+      "addressLocality": "Metropolis",
+      "addressRegion": "CA",
+      "postalCode": "94107",
+      "addressCountry": "US"
+    }
+  }
+  </script>
+</body>
+</html>
